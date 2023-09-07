@@ -1,0 +1,26 @@
+heck if the CFILE variable is set
+if [ -z "$CFILE" ]; then
+  echo "CFILE variable is not set. Please export the C file name in the CFILE variable."
+    exit 1
+    fi
+
+    # Check if the specified C file exists
+    if [ ! -f "$CFILE" ]; then
+      echo "File $CFILE does not exist."
+        exit 1
+	fi
+
+	# Extract the base name (without extension) from the CFILE
+	BASENAME="${CFILE%.*}"
+
+	# Compile the C file and create an executable named "cisfun"
+	gcc "$CFILE" -o cisfun
+
+	# Check if the compilation was successful
+	if [ $? -eq 0 ]; then
+	  echo "Compilation successful. Executable 'cisfun' created."
+	  else
+	    echo "Compilation failed."
+	    fi
+	    
+
