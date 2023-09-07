@@ -1,0 +1,25 @@
+heck if the CFILE variable is set
+if [ -z "$CFILE" ]; then
+  echo "CFILE variable is not set. Please export the C file name in the CFILE variable."
+    exit 1
+    fi
+
+    # Check if the specified C file exists
+    if [ ! -f "$CFILE" ]; then
+      echo "File $CFILE does not exist."
+        exit 1
+	fi
+
+	# Extract the base name (without extension) from the CFILE
+	BASENAME="${CFILE%.*}"
+
+	# Define the output file name with the .s extension
+	OUTPUT_FILE="$BASENAME.s"
+
+	# Generate the assembly code from the C file and save it to the output file
+	gcc -S "$CFILE" -o "$OUTPUT_FILE"
+
+	# Display a message indicating success
+	echo "Assembly code generated and saved in $OUTPUT_FILE."
+
+
