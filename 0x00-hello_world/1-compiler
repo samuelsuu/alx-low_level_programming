@@ -12,11 +12,14 @@ if [ ! -f "$CFILE" ]; then
   exit 1
 fi
 
-# Define the output file name
-OUTPUT_FILE="c"
+# Extract the base name (without extension) from the CFILE
+BASENAME="${CFILE%.*}"
 
-# Run the C file through the preprocessor and save the result to the output file
-cpp "$CFILE" -o "$OUTPUT_FILE"
+# Define the output file name with the .o extension
+OUTPUT_FILE="$BASENAME.o"
+
+# Compile the C file without linking and save the result to the output file
+gcc -c "$CFILE" -o "$OUTPUT_FILE"
 
 # Display a message indicating success
-echo "Preprocessing completed. Output saved in $OUTPUT_FILE."
+echo "Compilation completed. Output saved in $OUTPUT_FILE."
