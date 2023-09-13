@@ -1,37 +1,20 @@
-#include "main.h"
+#ifndef main_h
+	#define main_h
 
-/**
- * main - check the code.
- *
- * Return: Always 0.
- */
-int main(void)
-{
-    int r;
 
-    r = _islower('o');
-    _putchar(r + '0'); // Should print 1
-    r = _islower(108);
-    _putchar(r + '0'); // Should print 1
-    r = _islower('c');
-    _putchar(r + '0'); // Should print 1
-    r = _islower('I');
-    _putchar(r + '0'); // Should print 0
-    r = _islower('s');
-    _putchar(r + '0'); // Should print 1
-    r = _islower(70);
-    _putchar(r + '0'); // Should print 0
-    r = _islower(20);
-    _putchar(r + '0'); // Should print 0
-    r = _islower('U');
-    _putchar(r + '0'); // Should print 0
-    r = _islower('n');
-    _putchar(r + '0'); // Should print 1
-    r = _islower(0);
-    _putchar(r + '0'); // Should print 0
-    r = _islower('H');
-    _putchar(r + '0'); // Should print 0
+	int _putchar(char);
+	void print_alphabet(void);
+	void print_alphabet_x10(void);
+	int _islower(int c);
+	int _isalpha(int c);
+	int print_sign(int n);
+	int _abs(int);
+	int print_last_digit(int);
+	void jack_bauer(void);
+	void times_table(void);
+	int add(int, int);
+	void print_to_98(int n);
+	void print_times_table(int n);
 
-    _putchar('\n');
-    return (0);
-}
+
+	#endif
