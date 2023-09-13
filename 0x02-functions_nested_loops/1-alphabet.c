@@ -1,11 +1,10 @@
-#include <stdio.h>
-
-int _putchar(char c) {
-    return write(1, &c, 1);
-}
+#include <unistd.h>
 
 /**
  * print_alphabet - Prints the alphabet in lowercase followed by a newline
+ *
+ * Description: This function prints the lowercase alphabet using the write
+ * system call and outputs a newline character at the end.
  */
 void print_alphabet(void)
 {
@@ -13,8 +12,14 @@ void print_alphabet(void)
 
     while (letter <= 'z')
     {
-        _putchar(letter);
+        write(1, &letter, 1);
         letter++;
     }
-    _putchar('\n');
+    write(1, "\n", 1);
+}
+
+int main(void)
+{
+    print_alphabet();
+    return (0);
 }
